@@ -9,6 +9,14 @@ file = "bun.lock"
 hash = "c64ec38e302742ffc85ef014f5c2dffa2cf617f87c706c509750f74a15576c9c"
 
 [[files]]
+file = "kubejs/startup_scripts/custom_barrier_block.js"
+hash = "60706585ce998cfbd41af21746416a6cf8d475c66a70bd89da75aeb67e169336"
+
+[[files]]
+file = "kubejs/textures/block/custom_barrier.png"
+hash = "9ad373b10a82a3d370f1a685805f67ed02fd8b8587582c42d1aac5c73253bc13"
+
+[[files]]
 file = "mods/embeddium.pw.toml"
 hash = "778c42263b2ba7c9e73553bdcd70f48a3e485ba52b6a83474160d48be696b71f"
 metafile = true
@@ -65,8 +73,4 @@ metafile = true
 
 [[files]]
 file = "package.json"
-hash = "5f9195ac9f1f1f118375e60f69279fda8a9ebcb7bdd6f9b84b83aab3847bedac"
-
-[[files]]
-file = "tsconfig.json"
-hash = "da7aba2fce9a36d9f097c36c4cee2eb71f95d5d4fad32eece0d77c345b57e085"
+hash = "50cc49de5995ec4be1ff99f044f3ef3f22938719722e72382715d77b63b6c591"
