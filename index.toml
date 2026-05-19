@@ -5,12 +5,12 @@ file = "README.md"
 hash = "a69e159614d506502786ec958f360868fdb14be1743f50aedeba9c6cc3ca87c7"
 
 [[files]]
-file = "kubejs/assets/kubejs/textures/block/custom_barrier.png"
+file = "kubejs/assets/kubejs/textures/block/barrier_block.png"
 hash = "7f7abb9208c7712838ce2c3696361e3eeada0040f010ec0ef4c2273c8f994846"
 
 [[files]]
 file = "kubejs/startup_scripts/custom_barrier_block.js"
-hash = "b5a0c7df4b4bc2b8f90e914bc361710d99b2948acfa0ede56593bda2dec1f53a"
+hash = "77812369dd2df45227aaaaf578a804d1df1939071986e0c6c81f9fed4240b399"
 
 [[files]]
 file = "mods/embeddium.pw.toml"
