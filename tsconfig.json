@@ -27,7 +27,6 @@
     "noPropertyAccessFromIndexSignature": false
   },
   "include": [
-    "src/**/*",
-    "kubejs/probe/**/*.d.ts"
+	".probe/**/*.d.ts"
   ]
 }

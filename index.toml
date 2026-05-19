@@ -50,7 +50,7 @@ metafile = true
 
 [[files]]
 file = "mods/probejs.pw.toml"
-hash = "309a70339553c63d424c7f214cd42f9fe1b5e787d64af6333283b3969c7ae186"
+hash = "9e3f41880120e3b4ed4de68909bc95c4791716e7166c11b2a0bad98344ac67f9"
 metafile = true
 
 [[files]]
@@ -69,4 +69,4 @@ hash = "5f9195ac9f1f1f118375e60f69279fda8a9ebcb7bdd6f9b84b83aab3847bedac"
 
 [[files]]
 file = "tsconfig.json"
-hash = "11a68339a9c6a0c04a67b95dff9eefd9a92c42fa35161411048405272ab192c8"
+hash = "da7aba2fce9a36d9f097c36c4cee2eb71f95d5d4fad32eece0d77c345b57e085"
