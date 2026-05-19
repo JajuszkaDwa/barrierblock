@@ -6,7 +6,7 @@ hash = "a69e159614d506502786ec958f360868fdb14be1743f50aedeba9c6cc3ca87c7"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/block/custom_barrier.png"
-hash = "ff0371243a7176df90e3ccdf11c0a7baeea11caa4413b877652570a35bd11c5b"
+hash = "a724311d6be93f5d01c432165c8e754722b2590535c1e32adedd2d1e7f34422b"
 
 [[files]]
 file = "kubejs/startup_scripts/custom_barrier_block.js"
