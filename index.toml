@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "README.md"
-hash = "09651b1574e3ee5012101baa3be63c0d0947f72581f7a18fd0b8ba0c65e6d716"
+hash = "a69e159614d506502786ec958f360868fdb14be1743f50aedeba9c6cc3ca87c7"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/block/custom_barrier.png"
@@ -10,15 +10,15 @@ hash = "7f7abb9208c7712838ce2c3696361e3eeada0040f010ec0ef4c2273c8f994846"
 
 [[files]]
 file = "kubejs/server_scripts/spawn.js"
-hash = "9142319971250a019049d4f2797251213fc7e94525880b8411b67b083e6b1b01"
+hash = "804cc3cd575b6ea1294d04ad60847a52a75547cfb733011d0da7f4cbf44c3a4a"
 
 [[files]]
 file = "kubejs/startup_scripts/custom_barrier_block.js"
-hash = "baf6a79b4c75f4ae27f88eb2aa3b45e7005e21e9befb649184247328f3eb9d3e"
+hash = "9030db967c478d5d30dcfe2a15f0f65dfe6a59522f90603022bd3df98015658e"
 
 [[files]]
 file = "mods/embeddium.pw.toml"
-hash = "6a5503f90eda6b64b4eb121e3b2fb40d33ec8a97abae5dc9db49d37d45200ccf"
+hash = "778c42263b2ba7c9e73553bdcd70f48a3e485ba52b6a83474160d48be696b71f"
 metafile = true
 
 [[files]]
@@ -28,17 +28,17 @@ metafile = true
 
 [[files]]
 file = "mods/entityculling.pw.toml"
-hash = "92eb3e9a8db5e073a4a56bf53b34628666446d86a7af9c2359324095557565d0"
+hash = "590437e0f344c87791842b791a400e95ffd4154f02a04c2d8d78b43a76c659ad"
 metafile = true
 
 [[files]]
 file = "mods/ferrite-core.pw.toml"
-hash = "67f7b4ff6681b028e1a95917cfba7ae9e41d5fc53359b84e88168a83800469f7"
+hash = "73360e397134d238ee8fd21d33fd7f9275e9441f74f8f1b6ed92278877c0b9f1"
 metafile = true
 
 [[files]]
 file = "mods/jei.pw.toml"
-hash = "19d40889988c81797b7307934feec03d24f4fb68a108f8a1caa304e14318eb75"
+hash = "5367193d3f87b7bc5a81bcd64a5b96a843e76d4df7a83c8bb7e1911aa82dd52e"
 metafile = true
 
 [[files]]
@@ -53,12 +53,12 @@ metafile = true
 
 [[files]]
 file = "mods/modernfix.pw.toml"
-hash = "63dad29e52302b69d36d008eaffff68bf32017289286a64cb61521ac45da6821"
+hash = "1b0bcb6b0739ac51a706398c6f3765e1875e95490a9284603ee5628c259a4f63"
 metafile = true
 
 [[files]]
 file = "mods/probejs.pw.toml"
-hash = "6a8b8e8e836f33f3f22db3b6c2657c320c10e915b29dfe5a18644e4da669ea36"
+hash = "9e3f41880120e3b4ed4de68909bc95c4791716e7166c11b2a0bad98344ac67f9"
 metafile = true
 
 [[files]]
@@ -73,4 +73,4 @@ metafile = true
 
 [[files]]
 file = "package.json"
-hash = "6951b5f18ebe06c1c7e62747b3edfff79adf5a3ce1fab8486d2a312361e3d81d"
+hash = "50cc49de5995ec4be1ff99f044f3ef3f22938719722e72382715d77b63b6c591"
