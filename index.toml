@@ -9,6 +9,10 @@ file = "kubejs/assets/kubejs/textures/block/custom_barrier.png"
 hash = "a724311d6be93f5d01c432165c8e754722b2590535c1e32adedd2d1e7f34422b"
 
 [[files]]
+file = "kubejs/server_scripts/spawn.js"
+hash = "804cc3cd575b6ea1294d04ad60847a52a75547cfb733011d0da7f4cbf44c3a4a"
+
+[[files]]
 file = "kubejs/startup_scripts/custom_barrier_block.js"
 hash = "9030db967c478d5d30dcfe2a15f0f65dfe6a59522f90603022bd3df98015658e"
 
