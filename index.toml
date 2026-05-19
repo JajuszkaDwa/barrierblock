@@ -9,12 +9,12 @@ file = "bun.lock"
 hash = "c64ec38e302742ffc85ef014f5c2dffa2cf617f87c706c509750f74a15576c9c"
 
 [[files]]
-file = "kubejs/startup_scripts/custom_barrier_block.js"
-hash = "60706585ce998cfbd41af21746416a6cf8d475c66a70bd89da75aeb67e169336"
+file = "kubejs/assets/kubejs/textures/block/custom_barrier.png"
+hash = "9ad373b10a82a3d370f1a685805f67ed02fd8b8587582c42d1aac5c73253bc13"
 
 [[files]]
-file = "kubejs/textures/block/custom_barrier.png"
-hash = "9ad373b10a82a3d370f1a685805f67ed02fd8b8587582c42d1aac5c73253bc13"
+file = "kubejs/startup_scripts/custom_barrier_block.js"
+hash = "60706585ce998cfbd41af21746416a6cf8d475c66a70bd89da75aeb67e169336"
 
 [[files]]
 file = "mods/embeddium.pw.toml"
