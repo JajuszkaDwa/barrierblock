@@ -1,0 +1,11 @@
+StartupEvents.registry('block', event => {
+	event.create('custom_barrier')
+		.displayName('Custom Barrier')
+		.noSoundType()
+        .unbreakable()
+		.resistance(6000000)
+		.noDrops()
+        .opaque(true)
+        .renderType('cutout')
+		.model('kubejs:block/custom_barrier')
+})
