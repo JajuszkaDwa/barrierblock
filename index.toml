@@ -9,28 +9,12 @@ file = "bun.lock"
 hash = "c64ec38e302742ffc85ef014f5c2dffa2cf617f87c706c509750f74a15576c9c"
 
 [[files]]
-file = "kubejs/README.txt"
-hash = "989f3737ae4621b8ff6730bce4cbeeee756921e7e510e0c281c8a350501d98af"
-
-[[files]]
 file = "kubejs/assets/kubejs/textures/block/custom_barrier.png"
 hash = "7f7abb9208c7712838ce2c3696361e3eeada0040f010ec0ef4c2273c8f994846"
 
 [[files]]
-file = "kubejs/config/client.json"
-hash = "0aeb4cb329b896e33a0777a1683b0b813a6f2f0adc5bc2cf3e6d10e18e442fef"
-
-[[files]]
-file = "kubejs/config/common.json"
-hash = "e00a67922942660d77c213379b5128a46c5abc894178b0be04006d325ff5f6b3"
-
-[[files]]
-file = "kubejs/config/web_server.json"
-hash = "c1035b55c9388652cf8cfc25ccfe92d0adb6c7b26b96f7ba920ecb445ca27dd4"
-
-[[files]]
 file = "kubejs/startup_scripts/custom_barrier_block.js"
-hash = "b5a0c7df4b4bc2b8f90e914bc361710d99b2948acfa0ede56593bda2dec1f53a"
+hash = "ab51a8432abfb7e7199bd687d2617f601af0dee17d7e390317b60361dbc71498"
 
 [[files]]
 file = "mods/embeddium.pw.toml"

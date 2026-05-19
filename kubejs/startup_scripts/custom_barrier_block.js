@@ -5,7 +5,7 @@ StartupEvents.registry('block', event => {
         .unbreakable()
 		.resistance(6000000)
 		.noDrops()
-        .opaque(false)
+        .opaque(true)
         .renderType('cutout')
 		.notSolid()
 })
