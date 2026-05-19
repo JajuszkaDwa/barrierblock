@@ -1,8 +1,31 @@
 hash-format = "sha256"
 
 [[files]]
+file = "README.md"
+hash = "a69e159614d506502786ec958f360868fdb14be1743f50aedeba9c6cc3ca87c7"
+
+[[files]]
+file = "bun.lock"
+hash = "c64ec38e302742ffc85ef014f5c2dffa2cf617f87c706c509750f74a15576c9c"
+
+[[files]]
+file = "mods/embeddium.pw.toml"
+hash = "778c42263b2ba7c9e73553bdcd70f48a3e485ba52b6a83474160d48be696b71f"
+metafile = true
+
+[[files]]
 file = "mods/emi.pw.toml"
 hash = "67bb77eae0b644960be3b1074178ceb5d54facbb42f326981b9d94625238a54a"
+metafile = true
+
+[[files]]
+file = "mods/entityculling.pw.toml"
+hash = "590437e0f344c87791842b791a400e95ffd4154f02a04c2d8d78b43a76c659ad"
+metafile = true
+
+[[files]]
+file = "mods/ferrite-core.pw.toml"
+hash = "73360e397134d238ee8fd21d33fd7f9275e9441f74f8f1b6ed92278877c0b9f1"
 metafile = true
 
 [[files]]
@@ -12,12 +35,22 @@ metafile = true
 
 [[files]]
 file = "mods/krypton-fnp.pw.toml"
-hash = "5a96006110f4cdd98460a994373153909a5f0bf6cb68c5ac3a64adbda86eb302"
+hash = "d6c8e59f8baafa4c8461f58bce7dde91457c21c6880b75d2ddb763a725f86362"
 metafile = true
 
 [[files]]
 file = "mods/kubejs.pw.toml"
 hash = "99bea71046529d65463fc12acb505ab363c91133ebbcc1d976e49a5d33150702"
+metafile = true
+
+[[files]]
+file = "mods/modernfix.pw.toml"
+hash = "1b0bcb6b0739ac51a706398c6f3765e1875e95490a9284603ee5628c259a4f63"
+metafile = true
+
+[[files]]
+file = "mods/probejs.pw.toml"
+hash = "309a70339553c63d424c7f214cd42f9fe1b5e787d64af6333283b3969c7ae186"
 metafile = true
 
 [[files]]
@@ -29,3 +62,11 @@ metafile = true
 file = "mods/rhino.pw.toml"
 hash = "6b91f46291891e725189b0bd54d0db0f66925b1e785bdfa737592dfcf41a79a3"
 metafile = true
+
+[[files]]
+file = "package.json"
+hash = "5f9195ac9f1f1f118375e60f69279fda8a9ebcb7bdd6f9b84b83aab3847bedac"
+
+[[files]]
+file = "tsconfig.json"
+hash = "11a68339a9c6a0c04a67b95dff9eefd9a92c42fa35161411048405272ab192c8"
