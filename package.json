@@ -4,7 +4,7 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"build": "bun build ./src/server_scripts/*.ts ./src/client_scripts/*.ts ./src/startup_scripts/*.ts --outdir ./kubejs --watch"
+		"build": "bun build ./src/server_scripts/*.{ts,js} ./src/client_scripts/*.{ts,js} ./src/startup_scripts/*.{ts,js} --outdir ./kubejs --watch"
 	},
 	"devDependencies": {
 		"@types/bun": "latest"
