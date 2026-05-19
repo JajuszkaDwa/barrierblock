@@ -7,5 +7,4 @@ StartupEvents.registry('block', event => {
 		.noDrops()
         .opaque(true)
         .renderType('cutout')
-		.model('kubejs:block/custom_barrier')
 })
