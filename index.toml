@@ -10,7 +10,7 @@ hash = "7f7abb9208c7712838ce2c3696361e3eeada0040f010ec0ef4c2273c8f994846"
 
 [[files]]
 file = "kubejs/startup_scripts/custom_barrier_block.js"
-hash = "ab51a8432abfb7e7199bd687d2617f601af0dee17d7e390317b60361dbc71498"
+hash = "b5a0c7df4b4bc2b8f90e914bc361710d99b2948acfa0ede56593bda2dec1f53a"
 
 [[files]]
 file = "mods/embeddium.pw.toml"
