@@ -8,5 +8,4 @@ StartupEvents.registry('block', event => {
         .opaque(false)
         .renderType('cutout')
 		.notSolid()
-		.noValidSpawns()
 })
