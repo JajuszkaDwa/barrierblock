@@ -1,0 +1,13 @@
+name = "Barierblock"
+author = "lon21 & michalalek"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "4484e5adb0fd925853026eeafb29ddf005efeaf61372cec4ad719ffe51a6475e"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.228"
