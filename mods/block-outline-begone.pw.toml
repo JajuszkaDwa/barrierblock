@@ -1,0 +1,13 @@
+name = "Block Outline Begone"
+filename = "blockoutlinebegone-neoforge-1.21.1-1.0.0.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/jH8wJ265/versions/qUKnBH02/blockoutlinebegone-neoforge-1.21.1-1.0.0.jar"
+hash-format = "sha512"
+hash = "a1115ee1ee0ea42719412f0c6fb4b822bae8ff2857a9682d6b2e34d6a779ca800a02e55902b11b3c1b5cabc6c93603e8f355218da23a73878beb735dc2275336"
+
+[update]
+[update.modrinth]
+mod-id = "jH8wJ265"
+version = "qUKnBH02"
