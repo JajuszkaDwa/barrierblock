@@ -6,7 +6,7 @@ hash = "a69e159614d506502786ec958f360868fdb14be1743f50aedeba9c6cc3ca87c7"
 
 [[files]]
 file = "kubejs/assets/kubejs/models/block/custom_barrier.json"
-hash = "82eee4c9217c67deafaa9052217272babb5888464b6a2eec64280e4a8b601a44"
+hash = "e00fc09324741675f6e033b3c757cc516d6ff20fc80b060d0cdfb5f130d97d3b"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/block/custom_barrier.png"
@@ -46,7 +46,7 @@ hash = "2ea9b8f0903c8c7565b02e5689420be4ca7291183dbc24682fcdf59eeb32daef"
 
 [[files]]
 file = "kubejs/startup_scripts/register/blocs/custom_barrier_block.js"
-hash = "17a638f4e419db65bd6180c16119d04a31e51f64e46a62a9c551bc2ddcf56322"
+hash = "c979f36e356094c0244861c4113706fcf1ee19995c0b85bcbe77f5fd78f749af"
 
 [[files]]
 file = "kubejs/startup_scripts/register/items/chunk_key_item.js"
