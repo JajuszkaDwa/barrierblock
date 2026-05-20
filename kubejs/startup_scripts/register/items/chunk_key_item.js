@@ -1,7 +1,7 @@
 StartupEvents.registry('item', event => {
 	event.create('chunk_key')
 		.displayName('Chunk key')
-		.texture('minecraft:item/stick')
+		.texture('kubejs:item/chunk_key')
 		.unstackable()
 		.fireResistant(true)	
 });
