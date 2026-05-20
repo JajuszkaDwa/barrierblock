@@ -63,68 +63,14 @@ const isBorderBlock = (bx, bz, unlockedSet) => {
 };
 
 const REPLACEABLE_BLOCKS = [
-	'minecraft:air',
-	'minecraft:cave_air',
-	'minecraft:void_air',
-	'minecraft:water',
-	'minecraft:lava',
-	'#minecraft:snow',
-	'#minecraft:carpets',
+	'#minecraft:replaceable',
 	'#minecraft:slabs',
 	'#minecraft:trapdoors',
-	'minecraft:ladder',
-	'minecraft:vine',
-	'minecraft:glow_lichen',
-	'#minecraft:wall_post_override',
-	'#minecraft:small_flowers',
-	'#minecraft:tall_flowers',
-	'#minecraft:flowers',
-	'minecraft:short_grass',
-	'minecraft:tall_grass',
-	'minecraft:fern',
-	'minecraft:large_fern',
-	'minecraft:dead_bush',
-	'minecraft:seagrass',
-	'minecraft:tall_seagrass',
-	'minecraft:kelp',
-	'minecraft:kelp_plant',
-	'minecraft:bamboo',
-	'minecraft:bamboo_sapling',
-	'minecraft:sugar_cane',
-	'minecraft:chorus_plant',
-	'minecraft:chorus_flower',
-	'minecraft:hanging_roots',
-	'minecraft:big_dripleaf',
-	'minecraft:big_dripleaf_stem',
-	'minecraft:small_dripleaf',
-	'minecraft:moss_carpet',
-	'minecraft:pink_petals',
-	'minecraft:cobweb',
-	'#minecraft:rails',
-	'#minecraft:buttons',
-	'minecraft:lever',
-	'#minecraft:pressure_plates',
 	'#minecraft:fence_gates',
-	'minecraft:chain',
 	'minecraft:iron_bars',
 	'#minecraft:glass_panes',
-	'minecraft:end_rod',
-	'#minecraft:mushrooms',
-	'minecraft:nether_sprouts',
-	'#minecraft:nether_plants',
-	'minecraft:tripwire',
-	'minecraft:tripwire_hook',
+	'minecraft:cobweb',
 	'minecraft:scaffolding',
-	'#minecraft:candles',
-	'minecraft:pointed_dripstone',
-	'minecraft:small_amethyst_bud',
-	'minecraft:medium_amethyst_bud',
-	'minecraft:large_amethyst_bud',
-	'minecraft:amethyst_cluster',
-	'#minecraft:corals',
-	'#minecraft:coral_plants',
-	'minecraft:sea_pickle',
-	'minecraft:bubble_column',
 ];
 
 const placeWallColumn = (server, x, z) => {
@@ -279,7 +225,7 @@ ServerEvents.loaded(event => {
 
 PlayerEvents.loggedIn(event => {
 	let server = event.server;
-	server.scheduleInTicks(60, () => {
+	server.scheduleInTicks(20, () => {
 		let unlockedSet = getUnlockedSet(server);
 		redrawAllBorders(server, unlockedSet);
 		console.info('[BarrierBlock] Refreshed borders on player join.');
