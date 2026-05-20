@@ -244,13 +244,20 @@ PlayerEvents.tick(event => {
 		if (safeY <= level.getMinBuildHeight()) safeY = 64;
 
 		if (player.getVehicle()) {
-            let vehicle = player.getVehicle();
-            player.stopRiding();
-            vehicle.discard();
-        }
+			let vehicle = player.getVehicle();
+			player.stopRiding();
+			vehicle.discard();
+		}
 
 		player.teleportTo('minecraft:overworld', safe.x + 0.5, safeY, safe.z + 0.5, player.yaw, player.pitch);
 		console.info(`[BarrierBlock] Teleported ${player.name} back from (${px.toFixed(1)}, ${pz.toFixed(1)}) to (${safe.x}, ${safeY}, ${safe.z})`);
+	} else if (server.tickCount % 30 === 0) {
+		let unlockedSet = getUnlockedSet(server);
+		let segments = computeBorderSegments(unlockedSet);
+
+		for (let seg of segments) {
+			repairWallSegment(server, seg.x1, seg.z1, seg.x2, seg.z2);
+		}
 	}
 });
 
@@ -319,20 +326,4 @@ ItemEvents.rightClicked('kubejs:chunk_key', event => {
 	server.runCommandSilent('title @a title {"text":"New chunk unlocked!","color":"gold","bold":true}');
 
 	console.info(`[BarrierBlock] Player ${player.name} unlocked chunk [${newCX}, ${newCZ}]. Total unlocked: ${unlockedSet.size}.`);
-});
-
-LevelEvents.tick(event => {
-	let level = event.level;
-	
-	if (level.dimension !== 'minecraft:overworld') return;
-
-	if (level.tickCount % 30 === 0) {
-		let server = event.server;
-		let unlockedSet = getUnlockedSet(server);
-		let segments = computeBorderSegments(unlockedSet);
-		
-		for (let seg of segments) {
-			repairWallSegment(server, seg.x1, seg.z1, seg.x2, seg.z2);
-		}
-	}
 });
