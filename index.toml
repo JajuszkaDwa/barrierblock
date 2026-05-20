@@ -46,7 +46,7 @@ hash = "2ea9b8f0903c8c7565b02e5689420be4ca7291183dbc24682fcdf59eeb32daef"
 
 [[files]]
 file = "kubejs/startup_scripts/register/blocs/custom_barrier_block.js"
-hash = "20aefcfff54d8b5c8ab76bd7610824a816317d30f48e6253af55f6adb625689d"
+hash = "17a638f4e419db65bd6180c16119d04a31e51f64e46a62a9c551bc2ddcf56322"
 
 [[files]]
 file = "kubejs/startup_scripts/register/items/chunk_key_item.js"
@@ -90,6 +90,11 @@ metafile = true
 [[files]]
 file = "mods/modernfix.pw.toml"
 hash = "1b0bcb6b0739ac51a706398c6f3765e1875e95490a9284603ee5628c259a4f63"
+metafile = true
+
+[[files]]
+file = "mods/neoculus.pw.toml"
+hash = "dcbf1db7e42ada5710cb150588551e95fc01ecda5ada55efce4168a702f17222"
 metafile = true
 
 [[files]]
