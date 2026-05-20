@@ -277,6 +277,15 @@ ServerEvents.loaded(event => {
 	redrawAllBorders(server, unlockedSet);
 });
 
+PlayerEvents.loggedIn(event => {
+	let server = event.server;
+	server.scheduleInTicks(60, () => {
+		let unlockedSet = getUnlockedSet(server);
+		redrawAllBorders(server, unlockedSet);
+		console.info('[BarrierBlock] Refreshed borders on player join.');
+	});
+});
+
 PlayerEvents.tick(event => {
 	let player = event.player;
 
