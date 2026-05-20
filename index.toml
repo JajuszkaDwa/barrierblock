@@ -108,5 +108,10 @@ hash = "6b91f46291891e725189b0bd54d0db0f66925b1e785bdfa737592dfcf41a79a3"
 metafile = true
 
 [[files]]
+file = "mods/starcatcher.pw.toml"
+hash = "31ef2c296e4c7fe6980bce724ce19ff9fd6ea340ad99e123f821867d59d5f6c6"
+metafile = true
+
+[[files]]
 file = "package.json"
 hash = "50cc49de5995ec4be1ff99f044f3ef3f22938719722e72382715d77b63b6c591"
