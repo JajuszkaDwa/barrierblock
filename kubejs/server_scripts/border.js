@@ -75,8 +75,11 @@ const REPLACEABLE_BLOCKS = [
 
 
 const placeWallSegment = (server, x1, z1, x2, z2) => {
+	console.info(`[BarrierBlock] placeWallSegment: fill ${x1} ${Y_MIN} ${z1} ${x2} ${Y_MAX} ${z2}`);
 	for (let block of REPLACEABLE_BLOCKS) {
-		server.runCommandSilent(`fill ${x1} ${Y_MIN} ${z1} ${x2} ${Y_MAX} ${z2} ${BARRIER_ID} replace ${block}`);
+		let cmd = `fill ${x1} ${Y_MIN} ${z1} ${x2} ${Y_MAX} ${z2} ${BARRIER_ID} replace ${block}`;
+		let result = server.runCommandSilent(cmd);
+		console.info(`[BarrierBlock]   cmd result: ${result}`);
 	}
 };
 
@@ -86,10 +89,11 @@ const removeWallSegment = (server, x1, z1, x2, z2) => {
 
 const redrawAllBorders = (server, unlockedSet) => {
 	let segments = computeBorderSegments(unlockedSet);
+	console.info(`[BarrierBlock] redrawAllBorders: ${segments.length} segments, ${unlockedSet.size} chunks unlocked`);
 	for (let seg of segments) {
 		placeWallSegment(server, seg.x1, seg.z1, seg.x2, seg.z2);
 	}
-	console.info(`[BarrierBlock] Redrawn ${segments.length} border segments for ${unlockedSet.size} unlocked chunk(s).`);
+	console.info('[BarrierBlock] redrawAllBorders: DONE');
 };
 
 const getChunkBehindBarrier = (barrierX, barrierZ, unlockedSet) => {
@@ -205,12 +209,16 @@ ServerEvents.loaded(event => {
 	}
 
 	let unlockedSet = getUnlockedSet(server);
+	console.info(`[BarrierBlock] ServerEvents.loaded: calling redrawAllBorders, unlockedSet=${JSON.stringify(Array.from(unlockedSet))}`);
 	redrawAllBorders(server, unlockedSet);
+	console.info('[BarrierBlock] ServerEvents.loaded: finished');
 });
 
 PlayerEvents.loggedIn(event => {
 	let server = event.server;
+	console.info(`[BarrierBlock] PlayerEvents.loggedIn: player=${event.player.name}, scheduling redraw in 1 tick`);
 	server.scheduleInTicks(1, () => {
+		console.info('[BarrierBlock] PlayerEvents.loggedIn: tick fired, calling redrawAllBorders');
 		let unlockedSet = getUnlockedSet(server);
 		redrawAllBorders(server, unlockedSet);
 	});
