@@ -8,10 +8,5 @@ StartupEvents.registry('block', event => {
 		.opaque(false)
 		.renderType('translucent')
 		.notSolid()
-		.transparent(true)
-		.customBlockProperties(properties => {
-			properties.skipRendering((state, adjacentState, direction) => {
-				return adjacentState.is(state.getBlock());
-			});
-		});;
+		.transparent(true);
 });
