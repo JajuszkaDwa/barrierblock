@@ -223,45 +223,49 @@ PlayerEvents.loggedIn(event => {
 	});
 });
 
+ServerEvents.tick(event => {
+    let server = event.server;
+
+    if (server.tickCount % 30 === 0) {
+        let unlockedSet = getUnlockedSet(server);
+        let segments = computeBorderSegments(unlockedSet);
+
+        for (let seg of segments) {
+            repairWallSegment(server, seg.x1, seg.z1, seg.x2, seg.z2);
+        }
+    }
+});
+
 PlayerEvents.tick(event => {
-	let server = player.server;
+    let player = event.player;
+    let server = player.server;
 
-	if (server.tickCount % 30 === 0) {
-		let unlockedSet = getUnlockedSet(server);
-		let segments = computeBorderSegments(unlockedSet);
+    if (player.level != server.getLevel('minecraft:overworld')) return;
+    if (!player.isAlive()) return;
+    if (player.tickCount % 10 !== 0) return;
+    if (player.isCreative() || player.isSpectator()) return;
 
-		for (let seg of segments) {
-			repairWallSegment(server, seg.x1, seg.z1, seg.x2, seg.z2);
-		}
-	}
+    let unlockedSet = getUnlockedSet(server);
 
-	let player = event.player;
+    let px = player.x;
+    let pz = player.z;
 
-	if (player.level != player.server.getLevel('minecraft:overworld')) return;
-	if (!player.isAlive()) return;
-	if (player.tickCount % 10 !== 0) return;
-	if (player.isCreative() || player.isSpectator()) return;
+    if (isOutsideBorder(px, pz, unlockedSet)) {
+        let safe = findNearestUnlockedCenter(px, pz, unlockedSet);
+        let level = player.level;
+        let safeY = level.getHeight('motion_blocking', safe.x, safe.z);
+        
+        if (safeY <= level.getMinBuildHeight()) safeY = 64;
 
-	let unlockedSet = getUnlockedSet(server);
+        if (player.getVehicle()) {
+            let vehicle = player.getVehicle();
+            player.stopRiding();
+            vehicle.discard();
+        }
 
-	let px = player.x;
-	let pz = player.z;
-
-	if (isOutsideBorder(px, pz, unlockedSet)) {
-		let safe = findNearestUnlockedCenter(px, pz, unlockedSet);
-		let level = player.level;
-		let safeY = level.getHeight('motion_blocking', safe.x, safe.z);
-		if (safeY <= level.getMinBuildHeight()) safeY = 64;
-
-		if (player.getVehicle()) {
-			let vehicle = player.getVehicle();
-			player.stopRiding();
-			vehicle.discard();
-		}
-
-		player.teleportTo('minecraft:overworld', safe.x + 0.5, safeY, safe.z + 0.5, player.yaw, player.pitch);
-		console.info(`[BarrierBlock] Teleported ${player.name} back from (${px.toFixed(1)}, ${pz.toFixed(1)}) to (${safe.x}, ${safeY}, ${safe.z})`);
-	}
+        player.teleportTo('minecraft:overworld', safe.x + 0.5, safeY, safe.z + 0.5, player.yaw, player.pitch);
+        console.info(`[BarrierBlock] Teleported ${player.name} back from (${px.toFixed(1)}, ${pz.toFixed(1)}) to (${safe.x}, ${safeY}, ${safe.z})`);
+    }
 });
 
 BlockEvents.broken(event => {
