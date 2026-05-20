@@ -80,6 +80,11 @@ const placeWallSegment = (server, x1, z1, x2, z2) => {
 	}
 };
 
+const repairWallSegment = (server, x1, z1, x2, z2) => {
+	server.runCommandSilent(`fill ${x1} ${Y_MIN} ${z1} ${x2} ${Y_MAX} ${z2} ${BARRIER_ID} replace minecraft:air`);
+	server.runCommandSilent(`fill ${x1} ${Y_MIN} ${z1} ${x2} ${Y_MAX} ${z2} ${BARRIER_ID} replace minecraft:cave_air`);
+};
+
 const removeWallSegment = (server, x1, z1, x2, z2) => {
 	server.runCommandSilent(`fill ${x1} ${Y_MIN} ${z1} ${x2} ${Y_MAX} ${z2} minecraft:air replace ${BARRIER_ID}`);
 };
@@ -238,6 +243,12 @@ PlayerEvents.tick(event => {
 		let safeY = level.getHeight('motion_blocking', safe.x, safe.z);
 		if (safeY <= level.getMinBuildHeight()) safeY = 64;
 
+		if (player.getVehicle()) {
+            let vehicle = player.getVehicle();
+            player.stopRiding();
+            vehicle.discard();
+        }
+
 		player.teleportTo('minecraft:overworld', safe.x + 0.5, safeY, safe.z + 0.5, player.yaw, player.pitch);
 		console.info(`[BarrierBlock] Teleported ${player.name} back from (${px.toFixed(1)}, ${pz.toFixed(1)}) to (${safe.x}, ${safeY}, ${safe.z})`);
 	}
@@ -308,4 +319,20 @@ ItemEvents.rightClicked('kubejs:chunk_key', event => {
 	server.runCommandSilent('title @a title {"text":"New chunk unlocked!","color":"gold","bold":true}');
 
 	console.info(`[BarrierBlock] Player ${player.name} unlocked chunk [${newCX}, ${newCZ}]. Total unlocked: ${unlockedSet.size}.`);
+});
+
+LevelEvents.tick(event => {
+	let level = event.level;
+	
+	if (level.dimension !== 'minecraft:overworld') return;
+
+	if (level.tickCount % 30 === 0) {
+		let server = event.server;
+		let unlockedSet = getUnlockedSet(server);
+		let segments = computeBorderSegments(unlockedSet);
+		
+		for (let seg of segments) {
+			repairWallSegment(server, seg.x1, seg.z1, seg.x2, seg.z2);
+		}
+	}
 });
