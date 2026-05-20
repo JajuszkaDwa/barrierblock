@@ -9,4 +9,4 @@ StartupEvents.registry('block', event => {
         .renderType('translucent')
 		.notSolid()
 		.transparent(true)
-})
+});

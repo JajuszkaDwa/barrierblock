@@ -9,12 +9,20 @@ file = "kubejs/assets/kubejs/textures/block/custom_barrier.png"
 hash = "7f7abb9208c7712838ce2c3696361e3eeada0040f010ec0ef4c2273c8f994846"
 
 [[files]]
-file = "kubejs/server_scripts/spawn.js"
-hash = "804cc3cd575b6ea1294d04ad60847a52a75547cfb733011d0da7f4cbf44c3a4a"
+file = "kubejs/server_scripts/border.js"
+hash = "b9364e42a3c453ccdd01c96abbd5313ef5c82fda830a7302d14ab450b798e4b0"
 
 [[files]]
-file = "kubejs/startup_scripts/custom_barrier_block.js"
-hash = "9030db967c478d5d30dcfe2a15f0f65dfe6a59522f90603022bd3df98015658e"
+file = "kubejs/server_scripts/player_join.js"
+hash = "e0a455cb5782a1d6ff8f1b98abf322a8527c665e12b6994e419448cc203c398d"
+
+[[files]]
+file = "kubejs/startup_scripts/register/blocs/custom_barrier_block.js"
+hash = "8f8afeb7c5153e4971fedc104670c252a573bf5d7df0648362f02f785a77b1ff"
+
+[[files]]
+file = "kubejs/startup_scripts/register/items/chunk_key_item.js"
+hash = "cae56f5743849033bff90bc08b6a88803cf481b5c9011850bee536a8636833d9"
 
 [[files]]
 file = "mods/embeddium.pw.toml"
