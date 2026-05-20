@@ -1,10 +1,10 @@
 //priority: 10
-const DB_KEY = 'unlocked_chunks';
-const BARRIER_ID = 'kubejs:custom_barrier';
-const Y_MIN = -64;
-const Y_MAX = 319;
+var DB_KEY = 'unlocked_chunks';
+var BARRIER_ID = 'kubejs:custom_barrier';
+var Y_MIN = -64;
+var Y_MAX = 319;
 
-const REPLACEABLE_BLOCKS = [
+var REPLACEABLE_BLOCKS = [
 	'#minecraft:replaceable',
 	'#minecraft:slabs',
 	'#minecraft:trapdoors',
@@ -15,41 +15,45 @@ const REPLACEABLE_BLOCKS = [
 	'minecraft:scaffolding',
 ];
 
-const getUnlockedSet = (server) => {
-	let db = server.persistentData;
+var getUnlockedSet = function(server) {
+	var db = server.persistentData;
 	if (!db.contains(DB_KEY)) {
 		db.putString(DB_KEY, JSON.stringify(['0,0']));
 	}
 	return new Set(JSON.parse(db.getString(DB_KEY)));
 };
 
-const saveUnlockedSet = (server, set) => {
+var saveUnlockedSet = function(server, set) {
 	server.persistentData.putString(DB_KEY, JSON.stringify(Array.from(set)));
 };
 
-const chunkKey = (cx, cz) => `${cx},${cz}`;
+var chunkKey = function(cx, cz) { return cx + ',' + cz; };
 
-const blockToChunk = (blockCoord) => Math.floor(blockCoord / 16);
+var blockToChunk = function(blockCoord) { return Math.floor(blockCoord / 16); };
 
-const computeBorderSegments = (unlockedSet) => {
-	let segments = [];
-	for (let key of unlockedSet) {
-		let [cx, cz] = key.split(',').map(Number);
-		let ox = cx * 16;
-		let oz = cz * 16;
-		if (!unlockedSet.has(chunkKey(cx, cz - 1))) segments.push({ x1: ox, z1: oz - 1, x2: ox + 15, z2: oz - 1 });
-		if (!unlockedSet.has(chunkKey(cx, cz + 1))) segments.push({ x1: ox, z1: oz + 16, x2: ox + 15, z2: oz + 16 });
-		if (!unlockedSet.has(chunkKey(cx - 1, cz))) segments.push({ x1: ox - 1, z1: oz, x2: ox - 1, z2: oz + 15 });
-		if (!unlockedSet.has(chunkKey(cx + 1, cz))) segments.push({ x1: ox + 16, z1: oz, x2: ox + 16, z2: oz + 15 });
+var computeBorderSegments = function(unlockedSet) {
+	var segments = [];
+	for (var key of unlockedSet) {
+		var parts = key.split(',');
+		var cx = parseInt(parts[0]);
+		var cz = parseInt(parts[1]);
+		var ox = cx * 16;
+		var oz = cz * 16;
+		if (!unlockedSet.has(chunkKey(cx, cz - 1))) segments.push({ x1: ox,      z1: oz - 1,  x2: ox + 15, z2: oz - 1  });
+		if (!unlockedSet.has(chunkKey(cx, cz + 1))) segments.push({ x1: ox,      z1: oz + 16, x2: ox + 15, z2: oz + 16 });
+		if (!unlockedSet.has(chunkKey(cx - 1, cz))) segments.push({ x1: ox - 1,  z1: oz,      x2: ox - 1,  z2: oz + 15 });
+		if (!unlockedSet.has(chunkKey(cx + 1, cz))) segments.push({ x1: ox + 16, z1: oz,      x2: ox + 16, z2: oz + 15 });
 	}
 	return segments;
 };
 
-const isBorderBlock = (bx, bz, unlockedSet) => {
-	for (let key of unlockedSet) {
-		let [cx, cz] = key.split(',').map(Number);
-		let ox = cx * 16;
-		let oz = cz * 16;
+var isBorderBlock = function(bx, bz, unlockedSet) {
+	for (var key of unlockedSet) {
+		var parts = key.split(',');
+		var cx = parseInt(parts[0]);
+		var cz = parseInt(parts[1]);
+		var ox = cx * 16;
+		var oz = cz * 16;
 		if (bx === ox + 16 && bz >= oz && bz <= oz + 15 && !unlockedSet.has(chunkKey(cx + 1, cz))) return true;
 		if (bx === ox - 1 && bz >= oz && bz <= oz + 15 && !unlockedSet.has(chunkKey(cx - 1, cz))) return true;
 		if (bz === oz + 16 && bx >= ox && bx <= ox + 15 && !unlockedSet.has(chunkKey(cx, cz + 1))) return true;
@@ -58,21 +62,23 @@ const isBorderBlock = (bx, bz, unlockedSet) => {
 	return false;
 };
 
-const isOutsideBorder = (px, pz, unlockedSet) => {
-	let cx = blockToChunk(Math.floor(px));
-	let cz = blockToChunk(Math.floor(pz));
+var isOutsideBorder = function(px, pz, unlockedSet) {
+	var cx = blockToChunk(Math.floor(px));
+	var cz = blockToChunk(Math.floor(pz));
 	return !unlockedSet.has(chunkKey(cx, cz));
 };
 
-const findNearestUnlockedCenter = (px, pz, unlockedSet) => {
-	let bestDist = Infinity;
-	let bestX = 8;
-	let bestZ = 8;
-	for (let key of unlockedSet) {
-		let [cx, cz] = key.split(',').map(Number);
-		let centerX = cx * 16 + 8;
-		let centerZ = cz * 16 + 8;
-		let dist = (centerX - px) ** 2 + (centerZ - pz) ** 2;
+var findNearestUnlockedCenter = function(px, pz, unlockedSet) {
+	var bestDist = Infinity;
+	var bestX = 8;
+	var bestZ = 8;
+	for (var key of unlockedSet) {
+		var parts = key.split(',');
+		var cx = parseInt(parts[0]);
+		var cz = parseInt(parts[1]);
+		var centerX = cx * 16 + 8;
+		var centerZ = cz * 16 + 8;
+		var dist = (centerX - px) * (centerX - px) + (centerZ - pz) * (centerZ - pz);
 		if (dist < bestDist) {
 			bestDist = dist;
 			bestX = centerX;
@@ -82,61 +88,77 @@ const findNearestUnlockedCenter = (px, pz, unlockedSet) => {
 	return { x: bestX, z: bestZ };
 };
 
-const placeWallSegment = (server, x1, z1, x2, z2) => {
-	for (let block of REPLACEABLE_BLOCKS) {
-		server.runCommandSilent(`fill ${x1} ${Y_MIN} ${z1} ${x2} ${Y_MAX} ${z2} ${BARRIER_ID} replace ${block}`);
+var placeWallSegment = function(server, x1, z1, x2, z2) {
+	for (var block of REPLACEABLE_BLOCKS) {
+		server.runCommandSilent('fill ' + x1 + ' ' + Y_MIN + ' ' + z1 + ' ' + x2 + ' ' + Y_MAX + ' ' + z2 + ' ' + BARRIER_ID + ' replace ' + block);
 	}
 };
 
-const removeWallSegment = (server, x1, z1, x2, z2) => {
-	server.runCommandSilent(`fill ${x1} ${Y_MIN} ${z1} ${x2} ${Y_MAX} ${z2} minecraft:air replace ${BARRIER_ID}`);
+var removeWallSegment = function(server, x1, z1, x2, z2) {
+	server.runCommandSilent('fill ' + x1 + ' ' + Y_MIN + ' ' + z1 + ' ' + x2 + ' ' + Y_MAX + ' ' + z2 + ' minecraft:air replace ' + BARRIER_ID);
 };
 
-const redrawAllBorders = (server, unlockedSet) => {
-	let segments = computeBorderSegments(unlockedSet);
-	for (let seg of segments) {
+var redrawAllBorders = function(server, unlockedSet) {
+	var segments = computeBorderSegments(unlockedSet);
+	for (var seg of segments) {
 		placeWallSegment(server, seg.x1, seg.z1, seg.x2, seg.z2);
 	}
-	console.info(`[BarrierBlock] Redrawn ${segments.length} segments for ${unlockedSet.size} chunk(s).`);
+	console.info('[BarrierBlock] Redrawn ' + segments.length + ' segments for ' + unlockedSet.size + ' chunk(s).');
 };
 
-const refillBorderColumn = (server, bx, bz) => {
-	for (let block of REPLACEABLE_BLOCKS) {
-		server.runCommandSilent(`fill ${bx} ${Y_MIN} ${bz} ${bx} ${Y_MAX} ${bz} ${BARRIER_ID} replace ${block}`);
+var refillBorderColumn = function(server, bx, bz) {
+	for (var block of REPLACEABLE_BLOCKS) {
+		server.runCommandSilent('fill ' + bx + ' ' + Y_MIN + ' ' + bz + ' ' + bx + ' ' + Y_MAX + ' ' + bz + ' ' + BARRIER_ID + ' replace ' + block);
 	}
 };
 
-const getChunkBehindBarrier = (bx, bz, unlockedSet) => {
-	for (let key of unlockedSet) {
-		let [cx, cz] = key.split(',').map(Number);
-		let ox = cx * 16;
-		let oz = cz * 16;
-		if (bx === ox + 16 && bz >= oz && bz <= oz + 15 && !unlockedSet.has(chunkKey(cx + 1, cz))) return { cx: cx + 1, cz };
-		if (bx === ox - 1 && bz >= oz && bz <= oz + 15 && !unlockedSet.has(chunkKey(cx - 1, cz))) return { cx: cx - 1, cz };
-		if (bz === oz + 16 && bx >= ox && bx <= ox + 15 && !unlockedSet.has(chunkKey(cx, cz + 1))) return { cx, cz: cz + 1 };
-		if (bz === oz - 1 && bx >= ox && bx <= ox + 15 && !unlockedSet.has(chunkKey(cx, cz - 1))) return { cx, cz: cz - 1 };
+var getChunkBehindBarrier = function(bx, bz, unlockedSet) {
+	for (var key of unlockedSet) {
+		var parts = key.split(',');
+		var cx = parseInt(parts[0]);
+		var cz = parseInt(parts[1]);
+		var ox = cx * 16;
+		var oz = cz * 16;
+		if (bx === ox + 16 && bz >= oz && bz <= oz + 15 && !unlockedSet.has(chunkKey(cx + 1, cz))) return { cx: cx + 1, cz: cz };
+		if (bx === ox - 1 && bz >= oz && bz <= oz + 15 && !unlockedSet.has(chunkKey(cx - 1, cz))) return { cx: cx - 1, cz: cz };
+		if (bz === oz + 16 && bx >= ox && bx <= ox + 15 && !unlockedSet.has(chunkKey(cx, cz + 1))) return { cx: cx, cz: cz + 1 };
+		if (bz === oz - 1 && bx >= ox && bx <= ox + 15 && !unlockedSet.has(chunkKey(cx, cz - 1))) return { cx: cx, cz: cz - 1 };
 	}
 	return null;
 };
 
-const findSharedWallSegments = (newCX, newCZ, unlockedSet) => {
-	let ox = newCX * 16;
-	let oz = newCZ * 16;
-	return [
-		{ dcx: 0, dcz: -1, x1: ox, z1: oz, x2: ox + 15, z2: oz },
-		{ dcx: 0, dcz: 1, x1: ox, z1: oz + 15, x2: ox + 15, z2: oz + 15 },
-		{ dcx: -1, dcz: 0, x1: ox, z1: oz, x2: ox, z2: oz + 15 },
-		{ dcx: 1, dcz: 0, x1: ox + 15, z1: oz, x2: ox + 15, z2: oz + 15 },
-	].filter(d => unlockedSet.has(chunkKey(newCX + d.dcx, newCZ + d.dcz)));
+var findSharedWallSegments = function(newCX, newCZ, unlockedSet) {
+	var ox = newCX * 16;
+	var oz = newCZ * 16;
+	var dirs = [
+		{ dcx: 0, dcz: -1, x1: ox,      z1: oz,      x2: ox + 15, z2: oz      },
+		{ dcx: 0, dcz:  1, x1: ox,      z1: oz + 15, x2: ox + 15, z2: oz + 15 },
+		{ dcx:-1, dcz:  0, x1: ox,      z1: oz,      x2: ox,      z2: oz + 15 },
+		{ dcx: 1, dcz:  0, x1: ox + 15, z1: oz,      x2: ox + 15, z2: oz + 15 },
+	];
+	var result = [];
+	for (var d of dirs) {
+		if (unlockedSet.has(chunkKey(newCX + d.dcx, newCZ + d.dcz))) {
+			result.push({ x1: d.x1, z1: d.z1, x2: d.x2, z2: d.z2 });
+		}
+	}
+	return result;
 };
 
-const getNewExposedSegments = (newCX, newCZ, updatedSet) => {
-	let ox = newCX * 16;
-	let oz = newCZ * 16;
-	return [
-		{ dcx: 0, dcz: -1, x1: ox, z1: oz - 1, x2: ox + 15, z2: oz - 1 },
-		{ dcx: 0, dcz: 1, x1: ox, z1: oz + 16, x2: ox + 15, z2: oz + 16 },
-		{ dcx: -1, dcz: 0, x1: ox - 1, z1: oz, x2: ox - 1, z2: oz + 15 },
-		{ dcx: 1, dcz: 0, x1: ox + 16, z1: oz, x2: ox + 16, z2: oz + 15 },
-	].filter(d => !updatedSet.has(chunkKey(newCX + d.dcx, newCZ + d.dcz)));
+var getNewExposedSegments = function(newCX, newCZ, updatedSet) {
+	var ox = newCX * 16;
+	var oz = newCZ * 16;
+	var dirs = [
+		{ dcx: 0, dcz: -1, x1: ox,      z1: oz - 1,  x2: ox + 15, z2: oz - 1  },
+		{ dcx: 0, dcz:  1, x1: ox,      z1: oz + 16, x2: ox + 15, z2: oz + 16 },
+		{ dcx:-1, dcz:  0, x1: ox - 1,  z1: oz,      x2: ox - 1,  z2: oz + 15 },
+		{ dcx: 1, dcz:  0, x1: ox + 16, z1: oz,      x2: ox + 16, z2: oz + 15 },
+	];
+	var result = [];
+	for (var d of dirs) {
+		if (!updatedSet.has(chunkKey(newCX + d.dcx, newCZ + d.dcz))) {
+			result.push({ x1: d.x1, z1: d.z1, x2: d.x2, z2: d.z2 });
+		}
+	}
+	return result;
 };
