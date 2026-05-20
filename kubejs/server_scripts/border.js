@@ -62,10 +62,75 @@ const isBorderBlock = (bx, bz, unlockedSet) => {
 	return false;
 };
 
+const REPLACEABLE_BLOCKS = [
+	'minecraft:air',
+	'minecraft:cave_air',
+	'minecraft:void_air',
+	'minecraft:water',
+	'minecraft:lava',
+	'#minecraft:snow',
+	'#minecraft:carpets',
+	'#minecraft:slabs',
+	'#minecraft:trapdoors',
+	'minecraft:ladder',
+	'minecraft:vine',
+	'minecraft:glow_lichen',
+	'#minecraft:wall_post_override',
+	'#minecraft:small_flowers',
+	'#minecraft:tall_flowers',
+	'#minecraft:flowers',
+	'minecraft:short_grass',
+	'minecraft:tall_grass',
+	'minecraft:fern',
+	'minecraft:large_fern',
+	'minecraft:dead_bush',
+	'minecraft:seagrass',
+	'minecraft:tall_seagrass',
+	'minecraft:kelp',
+	'minecraft:kelp_plant',
+	'minecraft:bamboo',
+	'minecraft:bamboo_sapling',
+	'minecraft:sugar_cane',
+	'minecraft:chorus_plant',
+	'minecraft:chorus_flower',
+	'minecraft:hanging_roots',
+	'minecraft:big_dripleaf',
+	'minecraft:big_dripleaf_stem',
+	'minecraft:small_dripleaf',
+	'minecraft:moss_carpet',
+	'minecraft:pink_petals',
+	'minecraft:cobweb',
+	'#minecraft:rails',
+	'#minecraft:buttons',
+	'minecraft:lever',
+	'#minecraft:pressure_plates',
+	'#minecraft:fence_gates',
+	'minecraft:chain',
+	'minecraft:iron_bars',
+	'#minecraft:glass_panes',
+	'minecraft:end_rod',
+	'#minecraft:mushrooms',
+	'minecraft:nether_sprouts',
+	'#minecraft:nether_plants',
+	'minecraft:tripwire',
+	'minecraft:tripwire_hook',
+	'minecraft:scaffolding',
+	'#minecraft:candles',
+	'minecraft:pointed_dripstone',
+	'minecraft:small_amethyst_bud',
+	'minecraft:medium_amethyst_bud',
+	'minecraft:large_amethyst_bud',
+	'minecraft:amethyst_cluster',
+	'#minecraft:corals',
+	'#minecraft:coral_plants',
+	'minecraft:sea_pickle',
+	'minecraft:bubble_column',
+];
+
 const placeWallColumn = (server, x, z) => {
-	server.runCommandSilent(`fill ${x} ${Y_MIN} ${z} ${x} ${Y_MAX} ${z} ${BARRIER_ID} replace minecraft:air`);
-	server.runCommandSilent(`fill ${x} ${Y_MIN} ${z} ${x} ${Y_MAX} ${z} ${BARRIER_ID} replace minecraft:cave_air`);
-	server.runCommandSilent(`fill ${x} ${Y_MIN} ${z} ${x} ${Y_MAX} ${z} ${BARRIER_ID} replace minecraft:water`);
+	for (let block of REPLACEABLE_BLOCKS) {
+		server.runCommandSilent(`fill ${x} ${Y_MIN} ${z} ${x} ${Y_MAX} ${z} ${BARRIER_ID} replace ${block}`);
+	}
 };
 
 const removeWallColumn = (server, x, z) => {
@@ -166,6 +231,32 @@ const getNewExposedSegments = (newCX, newCZ, updatedSet) => {
 	return newSegments;
 };
 
+const findNearestUnlockedCenter = (px, pz, unlockedSet) => {
+	let bestDist = Infinity;
+	let bestX = 8;
+	let bestZ = 8;
+	for (let key of unlockedSet) {
+		let parts = key.split(',');
+		let cx = parseInt(parts[0]);
+		let cz = parseInt(parts[1]);
+		let centerX = cx * 16 + 8;
+		let centerZ = cz * 16 + 8;
+		let dist = (centerX - px) * (centerX - px) + (centerZ - pz) * (centerZ - pz);
+		if (dist < bestDist) {
+			bestDist = dist;
+			bestX = centerX;
+			bestZ = centerZ;
+		}
+	}
+	return { x: bestX, z: bestZ };
+};
+
+const isOutsideBorder = (px, pz, unlockedSet) => {
+	let cx = blockToChunk(Math.floor(px));
+	let cz = blockToChunk(Math.floor(pz));
+	return !unlockedSet.has(chunkKey(cx, cz));
+};
+
 ServerEvents.loaded(event => {
 	let server = event.server;
 	let level = server.getLevel('minecraft:overworld');
@@ -184,6 +275,31 @@ ServerEvents.loaded(event => {
 
 	let unlockedSet = getUnlockedSet(server);
 	redrawAllBorders(server, unlockedSet);
+});
+
+PlayerEvents.tick(event => {
+	let player = event.player;
+
+	if (player.level != player.server.getLevel('minecraft:overworld')) return;
+	if (!player.isAlive()) return;
+	if (player.tickCount % 10 !== 0) return;
+	if (player.isCreative() || player.isSpectator()) return;
+
+	let server = player.server;
+	let unlockedSet = getUnlockedSet(server);
+
+	let px = player.x;
+	let pz = player.z;
+
+	if (isOutsideBorder(px, pz, unlockedSet)) {
+		let safe = findNearestUnlockedCenter(px, pz, unlockedSet);
+		let level = player.level;
+		let safeY = level.getHeight('motion_blocking', safe.x, safe.z);
+		if (safeY <= level.getMinBuildHeight()) safeY = 64;
+
+		player.teleportTo('minecraft:overworld', safe.x + 0.5, safeY, safe.z + 0.5, player.yaw, player.pitch);
+		console.info(`[BarrierBlock] Teleported ${player.name} back from (${px.toFixed(1)}, ${pz.toFixed(1)}) to (${safe.x}, ${safeY}, ${safe.z})`);
+	}
 });
 
 BlockEvents.broken(event => {
@@ -241,7 +357,14 @@ ItemEvents.rightClicked('kubejs:chunk_key', event => {
 	}
 
 	event.item.count--;
-	player.playSound('minecraft:entity.item.break', 1.0, 1.0);
+
+	player.runCommandSilent('playsound minecraft:entity.item.break master @s ~ ~ ~ 1 1');
+	player.runCommandSilent('playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.5 1.2');
+
+	player.runCommandSilent('particle minecraft:totem_of_undying ~ ~1 ~ 0.5 0.5 0.5 0.1 50');
+	player.runCommandSilent('particle minecraft:happy_villager ~ ~1 ~ 0.5 0.5 0.5 0.1 20');
+
+	server.runCommandSilent('title @a title {"text":"New chunk unlocked!","color":"gold","bold":true}');
 
 	console.info(`[BarrierBlock] Player ${player.name} unlocked chunk [${newCX}, ${newCZ}]. Total unlocked: ${unlockedSet.size}.`);
 });
