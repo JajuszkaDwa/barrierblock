@@ -224,6 +224,17 @@ PlayerEvents.loggedIn(event => {
 });
 
 PlayerEvents.tick(event => {
+	let server = player.server;
+
+	if (server.tickCount % 30 === 0) {
+		let unlockedSet = getUnlockedSet(server);
+		let segments = computeBorderSegments(unlockedSet);
+
+		for (let seg of segments) {
+			repairWallSegment(server, seg.x1, seg.z1, seg.x2, seg.z2);
+		}
+	}
+
 	let player = event.player;
 
 	if (player.level != player.server.getLevel('minecraft:overworld')) return;
@@ -231,7 +242,6 @@ PlayerEvents.tick(event => {
 	if (player.tickCount % 10 !== 0) return;
 	if (player.isCreative() || player.isSpectator()) return;
 
-	let server = player.server;
 	let unlockedSet = getUnlockedSet(server);
 
 	let px = player.x;
@@ -251,13 +261,6 @@ PlayerEvents.tick(event => {
 
 		player.teleportTo('minecraft:overworld', safe.x + 0.5, safeY, safe.z + 0.5, player.yaw, player.pitch);
 		console.info(`[BarrierBlock] Teleported ${player.name} back from (${px.toFixed(1)}, ${pz.toFixed(1)}) to (${safe.x}, ${safeY}, ${safe.z})`);
-	} else if (server.tickCount % 30 === 0) {
-		let unlockedSet = getUnlockedSet(server);
-		let segments = computeBorderSegments(unlockedSet);
-
-		for (let seg of segments) {
-			repairWallSegment(server, seg.x1, seg.z1, seg.x2, seg.z2);
-		}
 	}
 });
 
