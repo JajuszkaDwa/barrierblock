@@ -30,7 +30,7 @@ hash = "b431b4e0329b36825292a95a40066fecd3129bbb30808cc8ce10c163803a59e2"
 
 [[files]]
 file = "kubejs/server_scripts/border.js"
-hash = "fba82ccd0e966ea4d63dbd7a94dd750d7cee9bdcbc9e4412fc09d4f5ae3c4df1"
+hash = "a3618a2dfd15428ad5d4b2656b2c75cb0bd98f4b04f5880b4d77ec8298dd0147"
 
 [[files]]
 file = "kubejs/server_scripts/player_join.js"

@@ -73,30 +73,15 @@ const REPLACEABLE_BLOCKS = [
 	'minecraft:scaffolding',
 ];
 
-const placeWallColumn = (server, x, z) => {
-	for (let block of REPLACEABLE_BLOCKS) {
-		server.runCommandSilent(`fill ${x} ${Y_MIN} ${z} ${x} ${Y_MAX} ${z} ${BARRIER_ID} replace ${block}`);
-	}
-};
-
-const removeWallColumn = (server, x, z) => {
-	server.runCommandSilent(`fill ${x} ${Y_MIN} ${z} ${x} ${Y_MAX} ${z} minecraft:air replace ${BARRIER_ID}`);
-};
 
 const placeWallSegment = (server, x1, z1, x2, z2) => {
-	for (let x = x1; x <= x2; x++) {
-		for (let z = z1; z <= z2; z++) {
-			placeWallColumn(server, x, z);
-		}
+	for (let block of REPLACEABLE_BLOCKS) {
+		server.runCommandSilent(`fill ${x1} ${Y_MIN} ${z1} ${x2} ${Y_MAX} ${z2} ${BARRIER_ID} replace ${block}`);
 	}
 };
 
 const removeWallSegment = (server, x1, z1, x2, z2) => {
-	for (let x = x1; x <= x2; x++) {
-		for (let z = z1; z <= z2; z++) {
-			removeWallColumn(server, x, z);
-		}
-	}
+	server.runCommandSilent(`fill ${x1} ${Y_MIN} ${z1} ${x2} ${Y_MAX} ${z2} minecraft:air replace ${BARRIER_ID}`);
 };
 
 const redrawAllBorders = (server, unlockedSet) => {
@@ -223,14 +208,6 @@ ServerEvents.loaded(event => {
 	redrawAllBorders(server, unlockedSet);
 });
 
-PlayerEvents.loggedIn(event => {
-	let server = event.server;
-	server.scheduleInTicks(20, () => {
-		let unlockedSet = getUnlockedSet(server);
-		redrawAllBorders(server, unlockedSet);
-		console.info('[BarrierBlock] Refreshed borders on player join.');
-	});
-});
 
 PlayerEvents.tick(event => {
 	let player = event.player;
