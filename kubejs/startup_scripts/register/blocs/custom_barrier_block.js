@@ -6,7 +6,7 @@ StartupEvents.registry('block', event => {
 		.resistance(6000000)
 		.noDrops()
         .opaque(false)
-        .renderType('translucent')
+        .renderType('cutout')
 		.notSolid()
 		.transparent(true);
 });
