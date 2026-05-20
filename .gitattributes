@@ -2,3 +2,4 @@
 *.toml text eol=lf
 *.pw.toml text eol=lf
 *.json text eol=lf
+*.js text eol=lf
