@@ -9,5 +9,4 @@ StartupEvents.registry('block', event => {
         .renderType('translucent')
 		.notSolid()
 		.transparent(true)
-		.model('kubejs:block/custom_barrier')
 });

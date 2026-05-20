@@ -42,7 +42,7 @@ hash = "2ea9b8f0903c8c7565b02e5689420be4ca7291183dbc24682fcdf59eeb32daef"
 
 [[files]]
 file = "kubejs/startup_scripts/register/blocs/custom_barrier_block.js"
-hash = "8ca84fc13453563990367b19960814fc403badd4c1fe47cd2d27cb1e244f3df5"
+hash = "8f8afeb7c5153e4971fedc104670c252a573bf5d7df0648362f02f785a77b1ff"
 
 [[files]]
 file = "kubejs/startup_scripts/register/items/chunk_key_item.js"
