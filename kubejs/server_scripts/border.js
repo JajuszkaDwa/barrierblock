@@ -65,6 +65,7 @@ const isBorderBlock = (bx, bz, unlockedSet) => {
 const placeWallColumn = (server, x, z) => {
 	server.runCommandSilent(`fill ${x} ${Y_MIN} ${z} ${x} ${Y_MAX} ${z} ${BARRIER_ID} replace minecraft:air`);
 	server.runCommandSilent(`fill ${x} ${Y_MIN} ${z} ${x} ${Y_MAX} ${z} ${BARRIER_ID} replace minecraft:cave_air`);
+	server.runCommandSilent(`fill ${x} ${Y_MIN} ${z} ${x} ${Y_MAX} ${z} ${BARRIER_ID} replace minecraft:water`);
 };
 
 const removeWallColumn = (server, x, z) => {
