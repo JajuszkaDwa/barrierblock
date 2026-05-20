@@ -2,19 +2,19 @@ hash-format = "sha256"
 
 [[files]]
 file = "README.md"
-hash = "a69e159614d506502786ec958f360868fdb14be1743f50aedeba9c6cc3ca87c7"
+hash = "09651b1574e3ee5012101baa3be63c0d0947f72581f7a18fd0b8ba0c65e6d716"
 
 [[files]]
 file = "kubejs/assets/kubejs/models/block/custom_barrier.json"
-hash = "e86a9f38f1fc0b8e1f69f023389ec2499a27e97b39debf86f237dc47c7fbd576"
+hash = "eb8468afb082cc54c9b868e8078d417b7169c8d57143ef93372d80ed215de873"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/block/custom_barrier.png"
-hash = "b4339d472368dfc3168682519dcd5006339861611fde5a21e081192d284a399f"
+hash = "7bce80796d8c462fa26f6ad79fd0110731c3c10431eab2db6eb90b1d4695dd59"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/block/custom_barrier.png.mcmeta"
-hash = "975bbfb5ef7cb0e6e4e43ad46e3dbc8d9808e3bf8a1c239973f05f018e24c5ee"
+hash = "a8c717c25bfa9f2671ccd58670f5a88432aed10ca6531bce62415c8296b5d9f2"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/item/chunk_key.png"
@@ -22,23 +22,23 @@ hash = "ccb9ae5b78755f795c1ea224201ff66e49197ac3724923a6a8812bf77ac49f13"
 
 [[files]]
 file = "kubejs/config/client.json"
-hash = "e9484ed18d3857216256459f9055c0f99684ab29d4d26f4277bfc99e76ed76e6"
+hash = "da1e962b5489d53c3d05c0418826d5b8568dfdbbe524768000d1dc0efc732b60"
 
 [[files]]
 file = "kubejs/config/common.json"
-hash = "b431b4e0329b36825292a95a40066fecd3129bbb30808cc8ce10c163803a59e2"
+hash = "40c9d1ce383a03241bf085449ff111cdb07c60dd1b4b256585a3b9839b356d3e"
 
 [[files]]
 file = "kubejs/server_scripts/border.js"
-hash = "688fa414e531e551febdbcb9b69ab2725a3780ef33daaa7778165e6c0eddc033"
+hash = "3d46905ff05a125937f70f057e35ed76c226fde83e3256c7e313204372b20e78"
 
 [[files]]
 file = "kubejs/server_scripts/player_join.js"
-hash = "efb3e55af1d781ab4b4aee59a72c305aefa9297d423773ea6664901f3a2ea7a1"
+hash = "1e106833d60ee9e9e85412e30257bd3ae9b2752c914a6863ed3fd86c2a9da2d6"
 
 [[files]]
 file = "kubejs/startup_scripts/border_lib.js"
-hash = "9f10eacf4c09bf362a193abf477c27fa97417454bec377fd817580ded89b0dd5"
+hash = "5eb0416d3327bdf82672a261e89330ad3e4c8bed299bc3b63ba37a93d318a0c3"
 
 [[files]]
 file = "kubejs/startup_scripts/index.js"
@@ -46,15 +46,15 @@ hash = "2ea9b8f0903c8c7565b02e5689420be4ca7291183dbc24682fcdf59eeb32daef"
 
 [[files]]
 file = "kubejs/startup_scripts/register/blocs/custom_barrier_block.js"
-hash = "17fd003228d6746ddacbc5f500285ef3bc0730d52d3608a74557fcdfceb4afdc"
+hash = "9132eeffd86a3b909931672171c230ec7a2fc8c481ab75579d42ef4e6be6fa00"
 
 [[files]]
 file = "kubejs/startup_scripts/register/items/chunk_key_item.js"
-hash = "143a37d5cbfd5cf99208e6234979eb819069155015ac23533804516f0ba82674"
+hash = "eab44869bad2bf76b901f23779a204ea930848c82540367610cc2f0fea0a0ae4"
 
 [[files]]
 file = "mods/embeddium.pw.toml"
-hash = "778c42263b2ba7c9e73553bdcd70f48a3e485ba52b6a83474160d48be696b71f"
+hash = "6a5503f90eda6b64b4eb121e3b2fb40d33ec8a97abae5dc9db49d37d45200ccf"
 metafile = true
 
 [[files]]
@@ -64,17 +64,17 @@ metafile = true
 
 [[files]]
 file = "mods/entityculling.pw.toml"
-hash = "590437e0f344c87791842b791a400e95ffd4154f02a04c2d8d78b43a76c659ad"
+hash = "92eb3e9a8db5e073a4a56bf53b34628666446d86a7af9c2359324095557565d0"
 metafile = true
 
 [[files]]
 file = "mods/ferrite-core.pw.toml"
-hash = "73360e397134d238ee8fd21d33fd7f9275e9441f74f8f1b6ed92278877c0b9f1"
+hash = "67f7b4ff6681b028e1a95917cfba7ae9e41d5fc53359b84e88168a83800469f7"
 metafile = true
 
 [[files]]
 file = "mods/jei.pw.toml"
-hash = "5367193d3f87b7bc5a81bcd64a5b96a843e76d4df7a83c8bb7e1911aa82dd52e"
+hash = "19d40889988c81797b7307934feec03d24f4fb68a108f8a1caa304e14318eb75"
 metafile = true
 
 [[files]]
@@ -89,17 +89,17 @@ metafile = true
 
 [[files]]
 file = "mods/modernfix.pw.toml"
-hash = "1b0bcb6b0739ac51a706398c6f3765e1875e95490a9284603ee5628c259a4f63"
+hash = "63dad29e52302b69d36d008eaffff68bf32017289286a64cb61521ac45da6821"
 metafile = true
 
 [[files]]
 file = "mods/mouse-tweaks.pw.toml"
-hash = "6bc414cc0f2d4c078fe83f384d786343f701f371d657c5279b5b0df1595804bd"
+hash = "8fb510d47dafc024cd08c0e80bfb59e192c354cb5db74c07dd146ee79fe8b885"
 metafile = true
 
 [[files]]
 file = "mods/neoculus.pw.toml"
-hash = "dcbf1db7e42ada5710cb150588551e95fc01ecda5ada55efce4168a702f17222"
+hash = "6c1fa54dcc7eb09f4eb5673ab8e8581161fc7549134af498f1e7955d8a233bdc"
 metafile = true
 
 [[files]]
@@ -114,9 +114,9 @@ metafile = true
 
 [[files]]
 file = "mods/starcatcher.pw.toml"
-hash = "31ef2c296e4c7fe6980bce724ce19ff9fd6ea340ad99e123f821867d59d5f6c6"
+hash = "620af9475e7a631027a1c63a61214b72a3865e338ed78e06dbb41bcc420d092b"
 metafile = true
 
 [[files]]
 file = "package.json"
-hash = "50cc49de5995ec4be1ff99f044f3ef3f22938719722e72382715d77b63b6c591"
+hash = "6951b5f18ebe06c1c7e62747b3edfff79adf5a3ce1fab8486d2a312361e3d81d"
