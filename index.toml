@@ -30,15 +30,15 @@ hash = "b431b4e0329b36825292a95a40066fecd3129bbb30808cc8ce10c163803a59e2"
 
 [[files]]
 file = "kubejs/server_scripts/border.js"
-hash = "7e08e187198a84b69a941603b44d73a5d1e7bcd2c4db1e8f4797ea8a476cda83"
-
-[[files]]
-file = "kubejs/server_scripts/border_events.js"
-hash = "2b3a27c9c14dcad81533eec5663295c1e053a24918fc62f0ab77977b8a1ea7f3"
+hash = "b887520ef0ac69dbce18266973d312dac78eba82784aaf8d211f671c0786acc8"
 
 [[files]]
 file = "kubejs/server_scripts/player_join.js"
 hash = "efb3e55af1d781ab4b4aee59a72c305aefa9297d423773ea6664901f3a2ea7a1"
+
+[[files]]
+file = "kubejs/startup_scripts/border_lib.js"
+hash = "9f10eacf4c09bf362a193abf477c27fa97417454bec377fd817580ded89b0dd5"
 
 [[files]]
 file = "kubejs/startup_scripts/index.js"
