@@ -8,5 +8,5 @@ StartupEvents.registry('block', event => {
         .opaque(false)
         .renderType('translucent')
 		.notSolid()
-		.transparent(true)
+		.transparent(true);
 });
