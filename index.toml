@@ -18,7 +18,7 @@ hash = "4b1d359826b63df1bcd1e998295be85ec493740a0c3855b17502dcb09c44d852"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/item/chunk_key.png"
-hash = "ccb9ae5b78755f795c1ea224201ff66e49197ac3724923a6a8812bf77ac49f13"
+hash = "b610b25001ca8f81f9d0a0393b05a3467f0d2d8cc326731ed72bfa47e32a51f3"
 
 [[files]]
 file = "kubejs/config/client.json"
