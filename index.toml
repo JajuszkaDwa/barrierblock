@@ -94,6 +94,16 @@ hash = "6d3a1c92eee4dd671253c41ec000ae48064a33c45263d6adce5cad466395169d"
 metafile = true
 
 [[files]]
+file = "mods/biome-spawn-point.pw.toml"
+hash = "4dc9ecb7ebed4f6f621ca99f46e627c1105e7a157bf381dc48481e49a7c0468d"
+metafile = true
+
+[[files]]
+file = "mods/collective.pw.toml"
+hash = "34cb9102708e368a116c6b11e98728e0c4b471a6afdf7ce9602f93cb75174509"
+metafile = true
+
+[[files]]
 file = "mods/embeddium.pw.toml"
 hash = "778c42263b2ba7c9e73553bdcd70f48a3e485ba52b6a83474160d48be696b71f"
 metafile = true
