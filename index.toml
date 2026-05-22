@@ -2,11 +2,31 @@ hash-format = "sha256"
 
 [[files]]
 file = "README.md"
-hash = "a69e159614d506502786ec958f360868fdb14be1743f50aedeba9c6cc3ca87c7"
+hash = "09651b1574e3ee5012101baa3be63c0d0947f72581f7a18fd0b8ba0c65e6d716"
+
+[[files]]
+file = "kubejs/assets/kubejs/models/block/biome_changer.json"
+hash = "2d945a097ebb77b3dd8fa75ba0e7e18eb261ddcdde60b0080b0d55ba8d547ad1"
 
 [[files]]
 file = "kubejs/assets/kubejs/models/block/custom_barrier.json"
 hash = "97b1e63934c8cdfbb71a698242b05de8bee305f5b5ad4a77a654b63962b18a15"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/block/biome_changer_bottom.png"
+hash = "5b103ca6c8806aeea3fa4312b3be31e310ed25885461dfd7e4b33b6907bd3880"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/block/biome_changer_inner.png"
+hash = "93b813e799d4073ff15eb5426a4257bcc9cfd632dd6b816018404cfb548d3f2c"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/block/biome_changer_side.png"
+hash = "bbb3efcd8fd2d4c9262387abcc3f82f85cc6e0898d3eb7e53b7b0a2b15b815f8"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/block/biome_changer_top.png"
+hash = "7776b9642a28af90842da72f62c8350a8ce54916ffe0f5b6605a858787a23703"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/block/custom_barrier.png"
