@@ -5,8 +5,16 @@ StartupEvents.registry('block', event => {
         .requiresTool()
         .tagBlock('minecraft:mineable/pickaxe')
         .tagBlock('minecraft:needs_iron_tool')
-        .model('minecraft:block/cauldron')
         .notSolid()
         .renderType('cutout')
-        .defaultCutout()
+        .blockstateJson({
+            "variants": {
+                "": {
+                    "model": "minecraft:block/cauldron"
+                }
+            }
+        })
+        .itemModelJson({
+            "parent": "minecraft:item/cauldron"
+        });
 });
