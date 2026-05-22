@@ -1,41 +1,45 @@
 BlockEvents.rightClicked('kubejs:biome_changer', event => {
-    const { hand, item, player, block, server } = event;
-    
+    const { hand, item, player, block, server, level } = event;
     if (hand !== 'MAIN_HAND') return;
     
     let targetBiomes = {
-        'kubejs:nether_essence': { biome: 'minecraft:nether_wastes', block: 'minecraft:netherrack', particle: 'minecraft:flame', sound: 'minecraft:entity.glowing_squid.ambient' },
+        'kubejs:nether_essence': { biome: 'minecraft:nether_wastes', block: 'minecraft:netherrack', particle: 'minecraft:flame', sound: 'minecraft:entity.glowing_squid.ambient' }
     };
     
     let config = targetBiomes[item.id];
-    if (!config) return;
+    
+    if (!config) {
+        player.tell(`§cTo nie jest odpowiednia esencja! (Trzymasz: ${item.id})`);
+        return;
+    }
     
     event.cancel();
-    item.count--;
+    player.tell("§a[KROK 1] Rozpoznano esencję!");
     
-    let chunkX = block.x >> 4;
-    let chunkZ = block.z >> 4;
-    let minX = chunkX * 16;
-    let maxX = minX + 15;
-    let minZ = chunkZ * 16;
-    let maxZ = minZ + 15;
-    
-    console.info(`Changing biome of chunk [${chunkX}, ${chunkZ}] to ${config.biome}`);
-    
-    server.runCommandSilent(`fillbiome ${minX} -64 ${minZ} ${maxX} 319 ${maxZ} ${config.biome}`);
-    
-    server.runCommandSilent(`fill ${minX} -64 ${minZ} ${maxX} ${block.y - 1} ${maxZ} ${config.block} replace minecraft:air`);
-    server.runCommandSilent(`fill ${minX} -64 ${minZ} ${maxX} ${block.y - 1} ${maxZ} ${config.block} replace minecraft:cave_air`);
-    
-    let level = server.getLevel('minecraft:overworld');
-    for (let i = 0; i < 10; i++) {
-        server.scheduleInTicks(i * 2, () => {
-            player.playSound(config.sound, 1.0, 1.0);
-            for (let px = minX; px <= maxX; px += 3) {
-                for (let pz = minZ; pz <= maxZ; pz += 3) {
-                    level.spawnParticles(config.particle, false, px + 0.5, block.y + 0.5, pz + 0.5, 0, 0, 0.1, 0, 1);
-                }
-            }
-        });
+    try {
+        item.shrink(1);
+        player.tell("§a[KROK 2] Zabrano esencję z ręki!");
+        
+        let chunkX = block.x >> 4;
+        let chunkZ = block.z >> 4;
+        let minX = chunkX * 16;
+        let maxX = minX + 15;
+        let minZ = chunkZ * 16;
+        let maxZ = minZ + 15;
+        
+        player.tell(`§a[KROK 3] Kordy chunka: X:${minX} do Z:${maxZ}`);
+        
+        server.runCommandSilent(`fillbiome ${minX} -64 ${minZ} ${maxX} 319 ${maxZ} ${config.biome}`);
+        player.tell("§a[KROK 4] Komenda biomu wykonana!");
+        
+        server.runCommandSilent(`fill ${minX} -64 ${minZ} ${maxX} ${block.y - 1} ${maxZ} ${config.block} replace minecraft:air`);
+        player.tell("§a[KROK 5] Komenda fill wykonana!");
+        
+        player.playSound(config.sound, 1.0, 1.0);
+        player.tell("§a[KROK 6] Dźwięk odtworzony. KONIEC!");
+        
+    } catch (err) {
+        player.tell(`§c[BŁĄD KRYTYCZNY]: ${err}`);
+        console.error(err);
     }
 });
