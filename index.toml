@@ -10,7 +10,7 @@ hash = "452d57c32bcf7040e7ca89f13d0908bc56081157422828f00f375d717c671e67"
 
 [[files]]
 file = "kubejs/assets/kubejs/models/block/biome_changer.json"
-hash = "2d945a097ebb77b3dd8fa75ba0e7e18eb261ddcdde60b0080b0d55ba8d547ad1"
+hash = "aefe238f889a9a58a766c8004a90d5d44478713f2a8454630ab5c8985c7b80ac"
 
 [[files]]
 file = "kubejs/assets/kubejs/models/block/custom_barrier.json"
@@ -26,7 +26,7 @@ hash = "93b813e799d4073ff15eb5426a4257bcc9cfd632dd6b816018404cfb548d3f2c"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/block/biome_changer_side.png"
-hash = "bbb3efcd8fd2d4c9262387abcc3f82f85cc6e0898d3eb7e53b7b0a2b15b815f8"
+hash = "14c25137c2e39addf1282f826544867d8ba449554a2c96d00151fee28d370134"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/block/biome_changer_top.png"
@@ -43,6 +43,10 @@ hash = "4b1d359826b63df1bcd1e998295be85ec493740a0c3855b17502dcb09c44d852"
 [[files]]
 file = "kubejs/assets/kubejs/textures/item/chunk_key.png"
 hash = "b610b25001ca8f81f9d0a0393b05a3467f0d2d8cc326731ed72bfa47e32a51f3"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/nether_essence.png"
+hash = "fbd11c1486ee941d5527a28e155d45f4e29f3b863b0bcb89eddd240591598a7b"
 
 [[files]]
 file = "kubejs/config/client.json"
@@ -86,7 +90,7 @@ hash = "143a37d5cbfd5cf99208e6234979eb819069155015ac23533804516f0ba82674"
 
 [[files]]
 file = "kubejs/startup_scripts/register/items/essences/nether_essence.js"
-hash = "466d5d4474cf75be7b53810f07393f10a330cde5e05e766be34089fa97dd0092"
+hash = "0e3a811390679373c42f224313f580b7cbf4470d64f7c1b340a19cae1dd027f1"
 
 [[files]]
 file = "mods/architectury-api.pw.toml"
