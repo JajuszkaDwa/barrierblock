@@ -54,7 +54,7 @@ hash = "b431b4e0329b36825292a95a40066fecd3129bbb30808cc8ce10c163803a59e2"
 
 [[files]]
 file = "kubejs/server_scripts/biome_changer.js"
-hash = "2d323b623442fdc8d9da68763bafbada6931b1f0df540f0d29cb7be3b32967d9"
+hash = "350dbd5011c758e5cf7e297fd8f94189155ce26348f4dd539fdc1257b8c98073"
 
 [[files]]
 file = "kubejs/server_scripts/border.js"
