@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "README.md"
-hash = "a69e159614d506502786ec958f360868fdb14be1743f50aedeba9c6cc3ca87c7"
+hash = "563fd2294a1d7bcd4c7c1ca46af962ec8b386cbe36d7855ceaca480abe883b06"
 
 [[files]]
 file = "kubejs/assets/kubejs/blockstates/biome_changer.json"
@@ -53,6 +53,10 @@ file = "kubejs/config/common.json"
 hash = "b431b4e0329b36825292a95a40066fecd3129bbb30808cc8ce10c163803a59e2"
 
 [[files]]
+file = "kubejs/server_scripts/biome_changer.js"
+hash = "2d323b623442fdc8d9da68763bafbada6931b1f0df540f0d29cb7be3b32967d9"
+
+[[files]]
 file = "kubejs/server_scripts/border.js"
 hash = "688fa414e531e551febdbcb9b69ab2725a3780ef33daaa7778165e6c0eddc033"
 
@@ -74,11 +78,15 @@ hash = "5c6ba14eeebd136787f496de0225cad0f7a233c65cc7065a5686647385d1c011"
 
 [[files]]
 file = "kubejs/startup_scripts/register/blocs/custom_barrier_block.js"
-hash = "17fd003228d6746ddacbc5f500285ef3bc0730d52d3608a74557fcdfceb4afdc"
+hash = "4573e55c96b6ec773f1710864cb5f9a9975c85ec3fcb95148ce651fd2618fd78"
 
 [[files]]
 file = "kubejs/startup_scripts/register/items/chunk_key_item.js"
 hash = "143a37d5cbfd5cf99208e6234979eb819069155015ac23533804516f0ba82674"
+
+[[files]]
+file = "kubejs/startup_scripts/register/items/essences/nether_essence.js"
+hash = "466d5d4474cf75be7b53810f07393f10a330cde5e05e766be34089fa97dd0092"
 
 [[files]]
 file = "mods/architectury-api.pw.toml"
@@ -118,6 +126,11 @@ metafile = true
 [[files]]
 file = "mods/ftb-teams-forge.pw.toml"
 hash = "e717bb275a54a5caadaa7cf82bc34df3589f49402074adf93c31eaac43860313"
+metafile = true
+
+[[files]]
+file = "mods/jade.pw.toml"
+hash = "b6e0a61fea06f8d6d8e1672cf07b682625c4b74efd548d5093cd9c1fed167eec"
 metafile = true
 
 [[files]]
