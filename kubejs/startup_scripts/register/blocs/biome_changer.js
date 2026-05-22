@@ -7,14 +7,4 @@ StartupEvents.registry('block', event => {
         .tagBlock('minecraft:needs_iron_tool')
         .notSolid()
         .renderType('cutout')
-        .blockstateJson({
-            "variants": {
-                "": {
-                    "model": "minecraft:block/cauldron"
-                }
-            }
-        })
-        .itemModelJson({
-            "parent": "minecraft:item/cauldron"
-        });
 });

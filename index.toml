@@ -2,7 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "README.md"
-hash = "09651b1574e3ee5012101baa3be63c0d0947f72581f7a18fd0b8ba0c65e6d716"
+hash = "a69e159614d506502786ec958f360868fdb14be1743f50aedeba9c6cc3ca87c7"
+
+[[files]]
+file = "kubejs/assets/kubejs/blockstates/biome_changer.json"
+hash = "452d57c32bcf7040e7ca89f13d0908bc56081157422828f00f375d717c671e67"
 
 [[files]]
 file = "kubejs/assets/kubejs/models/block/biome_changer.json"
@@ -66,7 +70,7 @@ hash = "2ea9b8f0903c8c7565b02e5689420be4ca7291183dbc24682fcdf59eeb32daef"
 
 [[files]]
 file = "kubejs/startup_scripts/register/blocs/biome_changer.js"
-hash = "6ca4a616f59182cb5292dfca027620dd063de4fe4f1cac8d919dda053eae6c72"
+hash = "5c6ba14eeebd136787f496de0225cad0f7a233c65cc7065a5686647385d1c011"
 
 [[files]]
 file = "kubejs/startup_scripts/register/blocs/custom_barrier_block.js"
