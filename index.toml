@@ -46,7 +46,7 @@ hash = "2ea9b8f0903c8c7565b02e5689420be4ca7291183dbc24682fcdf59eeb32daef"
 
 [[files]]
 file = "kubejs/startup_scripts/register/blocs/biome_changer.js"
-hash = "e89b7be1a7f4aca66dcc5aa2caad191d01b6158c61e5d3e47eab4bec647c922b"
+hash = "31ecdb663f2a434d806c1c049f9f85373828ab4c77bb1964d0aa2269cee42bb9"
 
 [[files]]
 file = "kubejs/startup_scripts/register/blocs/custom_barrier_block.js"
