@@ -58,7 +58,7 @@ hash = "b431b4e0329b36825292a95a40066fecd3129bbb30808cc8ce10c163803a59e2"
 
 [[files]]
 file = "kubejs/server_scripts/biome_changer.js"
-hash = "3f083eff869a8a706ab77a97811eaa44104fb313cff6a64fc9e670b543f51731"
+hash = "6ef480a601eecb859f7ec0a49b3eeacf576abd1fc7591bc6147a19f27bf880e7"
 
 [[files]]
 file = "kubejs/server_scripts/border.js"
@@ -90,7 +90,7 @@ hash = "143a37d5cbfd5cf99208e6234979eb819069155015ac23533804516f0ba82674"
 
 [[files]]
 file = "kubejs/startup_scripts/register/items/essences/nether_essence.js"
-hash = "0e3a811390679373c42f224313f580b7cbf4470d64f7c1b340a19cae1dd027f1"
+hash = "b68f745dfeb41e1997ff824ac869c7fb36f9802f4554ba8bd58db281abb7ca70"
 
 [[files]]
 file = "mods/architectury-api.pw.toml"
